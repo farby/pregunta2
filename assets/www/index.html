@@ -16,6 +16,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/libs/jquery-mobile/jquery.mobile.js"></script>
         <script type="text/javascript" src="js/plugin/TimeCircles.js"></script>
         <script type="text/javascript" src="js/bd.js"></script>
+        <script type="text/javascript" src="js/databkp.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
@@ -26,7 +27,7 @@ and open the template in the editor.
             <div data-role="content" id="mainContent">
                 <div style="text-align: center;">
                     <a id="btnPlay" data-role="button" href="#">
-                        <img src="css/play.png" style="width: 100px"><h1>Jugar!</h1>
+                        <img src="img/play.png" style="width: 100px"><h1>Jugar!</h1>
                     </a>
                 </div>
             </div>
@@ -43,7 +44,7 @@ and open the template in the editor.
         <div data-role="page" id="categorias">
             <div data-role="header" id="categoriasHeader" data-position="fixed">
                 <h1>Categorías</h1>
-                <a class="btnIni" href="#main" data-icon="home" class="ui-btn-left">Inicio</a>
+                <a href="#main" data-icon="home" class="btnIni ui-btn-left">Inicio</a>
             </div>
             <div data-role="content" id="categoriasContent">
                 <h3>Seleccione la Categoría en la que desea jugar</h3>
@@ -62,7 +63,7 @@ and open the template in the editor.
         <div data-role="page" id="pregunta">
             <div data-role="header" id="preguntaHeader" data-position="fixed">
                 <h1>Pregunta</h1>
-                <a class="btnIni" href="#main" data-icon="home" class="ui-btn-left">Inicio</a>
+                <a href="#main" data-icon="home" class="btnIni ui-btn-left">Inicio</a>
             </div>
             <div data-role="content" id="preguntaContent">
                 <div class="ui-grid-a">
@@ -89,7 +90,7 @@ and open the template in the editor.
         <div data-role="page" id="estadisticas">
             <div data-role="header" id="estadisticasHeader" data-position="fixed">
                 <h1>Historial y Estadisticas</h1>
-                <a class="btnIni" href="#main" data-icon="home" class="ui-btn-left">Inicio</a>
+                <a href="#main" data-icon="home" class="btnIni ui-btn-left">Inicio</a>
             </div>
             <div data-role="content" id="estadisticasContent">
                 <div id="lstEstadisticas" data-role="collapsibleset" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-mini="true"></div>
@@ -107,15 +108,10 @@ and open the template in the editor.
         <div data-role="page" id="opciones">
             <div data-role="header" id="opcionesHeader" data-position="fixed">
                 <h1>Opciones</h1>
-                <a class="btnIni" href="#main" data-icon="home" class="ui-btn-left">Inicio</a>
+                <a href="#main" data-icon="home" class="btnIni ui-btn-left">Inicio</a>
             </div>
             <div data-role="content" id="opcionesContent">
-                <h3>Seleccione la Dificultad</h3>
-                <div data-role="controlgroup" data-type="horizontal">
-                    <a href="#main" name="15" class="btnDif ui-btn ui-corner-all ui-icon-check ui-btn-icon-bottom">Baja</a>
-                    <a href="#main" name="10" class="btnDif ui-btn ui-corner-all ui-icon-check ui-btn-icon-bottom">Media</a>
-                    <a href="#main" name="5" class="btnDif ui-btn ui-corner-all ui-icon-check ui-btn-icon-bottom">Alta</a>
-                </div>
+   
                 <h3>Reiniciar Historial</h3>
                 <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-bottom btnRst">Reiniciar!</a>
             </div>
@@ -128,5 +124,6 @@ and open the template in the editor.
                 </div>
             </div>
         </div>  
+		<script type="text/javascript" src="js/cordova.js"></script>
     </body>
 </html>

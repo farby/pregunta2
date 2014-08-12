@@ -1,5 +1,4 @@
 var respCorrecta = -1;
-var tMax = 10;
 var timer;
 
 function getDatos(){
@@ -10,6 +9,10 @@ function getDatos(){
         success: function(response){
             loadBD(response);
             console.log(response);
+        },
+        error: function(jqXHR, error){
+            console.log(jqXHR.status + " " + error);
+            loadBD(databkp);
         }
     });
 }
@@ -65,7 +68,7 @@ function loadPregunta(idPre){
                 evalRespuesta(idPre, respSeleccionada);
             });
         $("#lstRespuestas").listview("refresh");
-        genTimer(idPre, tMax);
+        genTimer(idPre);
     });
 }
 
@@ -78,7 +81,7 @@ function genPregunta(){
             $("#lblPregunta").html("");
             $("#lblPregunta").html("No hay más preguntas en esta Categoría. Selecciona otra!");
             $("#lstRespuestas").html("");
-            $("#timer").html("<img src='css/sad.gif' style='width: 100px'>");
+            $("#timer").html("<img src='img/sad.gif' style='width: 100px'>");
         }
         else{
             var disponibles = [];
@@ -120,8 +123,7 @@ function evalRespuesta(idPre, respSeleccionada){
     }, 1500);
 }
 
-function genTimer(idPre, tMax){
-    //$("#timer").TimeCircles().restart();
+function genTimer(idPre){
     timer = $("#timer").TimeCircles({
         time: {
             Days: {show: false},
@@ -130,7 +132,7 @@ function genTimer(idPre, tMax){
             Seconds: {color: "red"}
         },
         count_past_zero: true,
-        total_duration: tMax
+        total_duration: 10
     }).addListener(
         function(unit,value,total){
             if(total < 0){
@@ -142,11 +144,6 @@ function genTimer(idPre, tMax){
             }
         }
     );
-}
-
-function setDificultad(dif){
-    tMax = dif;
-    $("#timer").attr("data-timer", '"' + dif + '"');
 }
 
 function resetHistorial(){
@@ -198,6 +195,15 @@ function historicoPorCategorias(){
     });
 }
 
+/*function setDificultad(dif){
+    if(timer != undefined){
+        timer.destroy();
+    }
+    timer.rebuild();
+    tMax = parseInt(dif);
+    $("#timer").attr("data-timer", dif);
+}*/
+
 $(document).ready(init);
 
 $(document).on("pagecreate", "#estadisticas", function(){
@@ -224,10 +230,9 @@ function init(){
     $("#btnPlay").click(function(){
         $.mobile.changePage("#categorias", {transition: "flow"});         
     });   
-    $(".btnDif").click(function(){
-        tMax = parseInt($(this).attr("name"));
-        $("#timer").attr("data-timer", tMax);
-    });
+    /*$(".btnDif").click(function(){
+        setDificultad($(this).attr("name"));
+    });*/
     $(".btnIni").attr("data-transition", "pop"); 
     $(".btnEst").attr("data-transition", "slideup"); 
     $(".btnCat").attr("data-transition", "slide"); 
